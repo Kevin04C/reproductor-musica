@@ -1,0 +1,84 @@
+
+:root{
+  --bg-color-primary: #8685a2;
+  --bg-color-secondary: #c1b9d3;
+  --color-text: #411583;
+  --bg-color-message: #ececf3
+}
+
+@font-face {
+  font-family: "Roboto Flex";
+  src: url(./RobotoFlex.ttf);
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: "Roboto Flex";
+  min-height: 100vh;
+  background-color: var(--bg-color-secondary); 
+  display: grid;
+  place-content: center;
+}
+
+.music {
+  width: 350px;
+  background-color: #ffffff;
+}
+
+.atx-box {
+  position: relative;
+}
+
+.atx-box .image-music {
+  width: 100%;
+  position: relative;
+}
+.atx-box .time {
+  position: absolute;
+  right: 0;
+  bottom: .5rem;
+  color: #fff;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 12px;
+  font-size: 1.1rem;
+}
+.control-box {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.control-box .control__music-name{
+  margin-bottom: .5rem;
+}
+.control-box .control__music-author {
+  font-size: .9rem;
+  color: #8685a2;
+  margin: .5rem 0 2rem 0 ;
+}
+
+.control-box .buttons-controls{
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 1.5rem;
+}
+.control-box .buttons-controls .button-control{
+  cursor: pointer;
+}
+
+.status-box .status-message{
+  background-color: var(--bg-color-message);
+  color: var(--color-text);
+  font-weight: bold;
+  text-align: center;
+  font-size: 1rem;
+  padding: 1rem .5rem;
+}
+.status-box .progress {
+  height: 10px;
+  background-color: #a7a7a7;
+}

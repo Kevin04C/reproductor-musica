@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Reproductor de Música</title>
+  </head>
+  <body>
+    <div class="music">
+      <div class="atx-box">
+        <img src="./monkey-mix.jpg" alt="image music" class="image-music"/>
+
+        <div class="time">
+          <div class="time-elapsed">0:00</div>
+          <div class="time-total">0:00</div>
+        </div>
+      </div>
+
+      <div class="control-box">
+        <h3 class="control__music-name">The SCUMM BAR</h3>
+        <p class="control__music-author">Michael Land</p>
+        <div class="buttons-controls">
+          <div class="button-control">
+            <i class="fas fa-step-backward"></i>
+          </div>
+          <div class="button-control">
+            <!-- <i class="fas fa-play"></i> -->
+            <i class="fas fa-pause"></i>
+          </div>
+          <div class="button-control">
+            <i class="fas fa-step-forward"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="status-box">
+        <div class="status-message">
+        <p class="message">Cuando sólo hay un candito, sólo hay una elección</p>
+        </div>
+        <div class="progress"></div>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
