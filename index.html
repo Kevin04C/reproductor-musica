@@ -17,7 +17,7 @@
   <body>
     <div class="music">
       <div class="atx-box">
-        <img src="./monkey-mix.jpg" alt="image music" class="image-music"/>
+        <img src="./monkey-mix.jpg" alt="image music" class="image-music" />
 
         <div class="time">
           <div class="time-elapsed">0:00</div>
@@ -32,9 +32,14 @@
           <div class="button-control">
             <i class="fas fa-step-backward"></i>
           </div>
+
           <div class="button-control">
-            <!-- <i class="fas fa-play"></i> -->
-            <i class="fas fa-pause"></i>
+            <a href="#btn-play" id="btn-play">
+              <i class="fas fa-play"></i>
+            </a>
+            <a href="#btn-pause" id="btn-pause">
+              <i class="fas fa-pause"></i>
+            </a>
           </div>
           <div class="button-control">
             <i class="fas fa-step-forward"></i>
@@ -44,9 +49,11 @@
 
       <div class="status-box">
         <div class="status-message">
-        <p class="message">Cuando sólo hay un candito, sólo hay una elección</p>
+          <p class="message">
+            Cuando sólo hay un candito, sólo hay una elección
+          </p>
         </div>
-        <div class="progress"></div>
+        <input type="range" class="progress" id="progress" maxlength="100" value="50"/>
       </div>
     </div>
     <script type="module" src="/main.js"></script>
