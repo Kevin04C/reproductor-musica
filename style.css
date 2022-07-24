@@ -68,18 +68,9 @@ body {
 .control-box .buttons-controls .button-control {
   cursor: pointer;
 }
-
-.control-box .buttons-controls a:visited {
-  color: #222;
-}
-
-.control-box .buttons-controls #btn-pause:target {
+/* .control-box .buttons-controls .button-control #btn-pause {
   display: none;
-}
-.control-box .buttons-controls #btn-play:target {
-  display: none;
-}
-
+} */
 .status-box .status-message {
   background-color: var(--bg-color-message);
   color: var(--color-text);
@@ -93,3 +84,7 @@ body {
   height: 10px;
 }
 
+/* Toogle buttons */
+.hidden {
+  display: none;
+}
