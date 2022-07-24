@@ -13,6 +13,14 @@
 * {
   box-sizing: border-box;
 }
+button{
+  border: none;
+  outline: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
 
 body {
   font-family: "Roboto Flex";
@@ -68,9 +76,10 @@ body {
 .control-box .buttons-controls .button-control {
   cursor: pointer;
 }
-/* .control-box .buttons-controls .button-control #btn-pause {
-  display: none;
-} */
+.control-box .buttons-controls .button-control #btn-pause:disabled,
+.control-box .buttons-controls .button-control #btn-play:disabled {
+  color: #8685a2;
+}
 .status-box .status-message {
   background-color: var(--bg-color-message);
   color: var(--color-text);

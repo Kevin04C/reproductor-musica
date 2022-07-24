@@ -10,10 +10,13 @@ let isPlay = false;
 
 const btnPause = $("#btn-pause");
 const btnPlay = $("#btn-play");
-const indexAudio = 0;
+const btnNext = $("#btn-next");
+const btnBefore = $("#btn-before");
+const nameMusic = $("#name-music");
+const authorMusic = $("#author-music");
 
-console.log(btnPause);
-console.log(btnPlay);
+
+let indexAudio = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
   init();
@@ -21,6 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const init = () => {
+  nameMusic.textContent = data[indexAudio].title;
+  authorMusic.textContent = data[indexAudio].artist;
   audio.src = data[indexAudio].url;
 };
 
@@ -40,14 +45,31 @@ const playOrPause = () => {
   }
 };
 
+const nextMusic = () => {
+  if (indexAudio < data.length - 1) {
+    indexAudio++;
+    nameMusic.textContent = data[indexAudio].title;
+    authorMusic.textContent = data[indexAudio].artist;
+    audio.src = data[indexAudio].url;
+    audio.play();
+
+    return;
+  }
+  alert("End of playlist");
+  
+};
+
+const beforeMusic = () => {};
+
 document.addEventListener("click", (e) => {
+
   if (e.target === btnPause) {
-    isPause = true;
-    isPlay = false;
     playOrPause();
   } else if (e.target === btnPlay) {
-    isPause = false;
-    isPlay = true;
     playOrPause();
+  } else if (e.target === btnNext ||e.target.className.includes("fa-step-forward")) {
+    console.log("nexttt")
+  } else if (e.target === btnBefore) {
+    console.log("before musiccc");
   }
 });
