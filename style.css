@@ -13,7 +13,7 @@
 * {
   box-sizing: border-box;
 }
-button{
+button {
   border: none;
   outline: none;
   background-color: transparent;
@@ -33,26 +33,71 @@ body {
 .music {
   width: 350px;
   background-color: #ffffff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .atx-box {
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+  padding: 15px 12px;
+
   position: relative;
 }
 
-.atx-box .image-music {
-  width: 100%;
+.atx-box::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.atx-box .icon-list-music{
+  align-self: flex-end;
+  font-size: 1.5rem;
+  opacity: .7;
+  margin-top: 10px;
+  cursor: pointer;
+
   position: relative;
 }
-.atx-box .time {
+
+.atx-box .list-music {
   position: absolute;
-  right: 0;
-  bottom: 0.5rem;
-  color: #fff;
-  width: 100%;
+  top: 50px;
+  right: 10px;
+  padding: 8px;
+  z-index: 10;
+  width: max-content;
+  font-size: .9rem;
+  list-style: none;
+  background-color: #fff;
+  color: #2b2b2b;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.3);
+
+  transition: .3s ease;
+}
+
+.atx-box .list-music .list-music__item {
+  padding: 4px 10px;
+}
+.atx-box .list-music .list-music__item:hover{
+  cursor: pointer;
+  background-color: var(--bg-color-secondary);
+}
+.atx-box .time {
   display: flex;
   justify-content: space-between;
-  padding: 10px 12px;
   font-size: 1.1rem;
+  z-index: 20;
 }
 .control-box {
   text-align: center;
@@ -91,9 +136,28 @@ body {
 .status-box .progress {
   width: 100%;
   height: 10px;
+  background-color: var(--bg-color-primary);
+  position: relative;
+  transition: 1s ease;
+}
+
+.status-box .progress .progress__percentage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: var(--color-text);
+  transition: 1s ease;
 }
 
 /* Toogle buttons */
 .hidden {
   display: none;
+}
+
+.hidden-list-music {
+  opacity: 0;
+  transform: scale(0);
+  
 }

@@ -16,12 +16,15 @@
   </head>
   <body>
     <div class="music">
-      <div class="atx-box">
-        <img src="./monkey-mix.jpg" alt="image music" class="image-music" />
+      <div class="atx-box" id="atx-box">
+
+        <i class="fa-solid fa-bars-staggered icon-list-music" id="icon-list-music"></i>
+        <ul class="list-music hidden-list-music" id="list-music">
+        </ul>
 
         <div class="time">
-          <div class="time-elapsed">0:00</div>
-          <div class="time-total">0:00</div>
+          <div class="time-elapsed" id="time-elapsed">0:00</div>
+          <div class="time-total" id="time-total">0:00</div>
         </div>
       </div>
 
@@ -37,7 +40,7 @@
 
           <div class="button-control">
             <i class="fas fa-play" id="btn-play"></i>
-            <i class="fas fa-pause" id="btn-pause"></i>
+            <i class="fas fa-pause hidden" id="btn-pause"></i>
           </div>
           <div class="button-control">
             <button id="btn-next">
@@ -53,13 +56,9 @@
             Cuando sólo hay un candito, sólo hay una elección
           </p>
         </div>
-        <input
-          type="range"
-          class="progress"
-          id="progress"
-          maxlength="100"
-          value="50"
-        />
+        <div class="progress" id="progress">
+          <span class="progress__percentage" id="progress-precentage"></span>
+        </div>
       </div>
     </div>
     <script type="module" src="/main.js"></script>
