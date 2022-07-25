@@ -8,6 +8,7 @@ const audio = new Audio();
 
 let isPause = true;
 let isPlay = false;
+let audioDuration;
 
 const atxBox = $("#atx-box");
 const btnPause = $("#btn-pause");
@@ -27,6 +28,7 @@ let indexAudio = 0;
 document.addEventListener("DOMContentLoaded", () => {
   printMusicInTheDocument();
   showDataMusic();
+  showControls()
 });
 
 const printMusicInTheDocument = () => {
@@ -96,12 +98,12 @@ document.addEventListener("click", (e) => {
   ) {
     beforeMusic();
   } else if (e.target === progressPercentage || e.target.matches("#progress")) {
-    // console.log(e.target.getBoundingClientRect());
-    // console.log(e.pageY - y);
+    changeCurrentTime(e);
   } else if (e.target === iconListMusic) {
     listMusic.classList.toggle("hidden-list-music");
+    showControls();
   } else if (e.target.matches(".list-music__item")) {
-    indexAudio = e.target.dataset.index;
+    indexAudio = Number(e.target.dataset.index);
     listMusic.classList.toggle("hidden-list-music");
     showDataMusic();
     showControls();
@@ -110,12 +112,21 @@ document.addEventListener("click", (e) => {
 
 audio.addEventListener("timeupdate", (e) => {
   timeElapsed.textContent = addFormat(parseInt(audio.currentTime));
-  const percentage = Number.parseInt(
-    (audio.currentTime * 100) / audio.duration
-  );
+  const percentage = (audio.currentTime * 100) / audio.duration;
 
   progressPercentage.style.width = `${percentage}%`;
 });
+audio.addEventListener("ended",(e) => {
+  if(indexAudio !== data.length - 1) {
+    nextMusic()
+  }
+  else if(indexAudio === data.length - 1){
+    isPause = true;
+    isPlay = false;
+
+    showControls();
+  }
+})
 
 const showControls = () => {
   if (isPlay) {
@@ -142,8 +153,18 @@ const showControls = () => {
 const setDurationAudio = () => {
   audio.onloadedmetadata = () => {
     timeTotal.textContent = addFormat(parseInt(audio.duration));
+    audioDuration = audio.duration;
   };
 };
+
+const changeCurrentTime = (e) => {
+  const posX = e.offsetX;
+  const { width } = e.target.getBoundingClientRect()
+  const percentage = Math.round(posX * 100 / width)
+  const newCurrentTime = Math.trunc((percentage * audioDuration) / 100);
+
+  audio.currentTime = newCurrentTime;
+}
 
 const addFormat = (time) => {
   const minutes = Math.round(time / 60);
